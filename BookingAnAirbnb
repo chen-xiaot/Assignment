@@ -2,21 +2,49 @@ Scenario : Booking an Airbnb
 Description : A tourist wants to book a house on Airbnb app.
 
 
-	Object : Consumer
-		State : name, emailAddress,phoneNumber
-		Behavior : visitApp(), findHouses(), placeOrderForHouse(), payMoneyToApp()
+Object : Consumer
+	State : name, emailAddress,phoneNumber
+	Behavior : visitApp(), findHouses(), placeOrderForHouse(), payMoneyToApp()
 	
 	
-	Object : App
-		State : Collection of Houses
-		Behavior : displayAvailableHouses(), acceptMoneyFromConsumer()
+Object : App
+	State : Collection of Houses
+	Behavior : displayAvailableHouses(), acceptMoneyFromConsumer()
 	
-	Object : House
-		State : name, price, address
-		Behavior : getPrice(), getName(),getAddress()
+Object : House
+	State : name, price, address
+	Behavior : getPrice(), getName(),getAddress()
 	
-	Object : Money
-		state : amount	
+Object : Money
+	state : amount	
+
+
+
+
+class BookingAnAirbnb{
+public static void main(String args[]){
+	App airbnb = new App();
+
+	House amli = new House();amli.name = "AMLI";
+	House cairns = new House();cairns.name = "CAIRNS";
+	House skye = new House();skye.name = "SKYE";
+	House[] houses = {amli, cairns, skye};
+
+	Consumer csm = new Consumer();
+	csm.name = "CSM";
+		
+	csm.visitsApp(app);
+	House[] houses = app.displayAvailableHouses();
+	House house = csm.findTheHouseInterestedIn(houses);
+	csm.placeOrderForHouse(house)
+	Money money = csm.payMoneyToApp(app);
+	app.acceptMoneyFromConsumer(csm, money);
+	}
+
+}
+
+
+
 
 class Consumer{
 	String name;
@@ -33,7 +61,7 @@ class App{
 	House[] houses; 
 	House[] displayAvailableHouses(){}
 	void acceptMoneyFromConsumer(Consumer c, Money money){}
-			
+	
 }
 
 class House{
@@ -50,24 +78,3 @@ class Money{
 	float amount;
 }
 
-class BookingAnAirbnb{
-	public static void main(String args[]){
-		App airbnb = new App();
-
-		House amli = new House();amli.name = "AMLI";
-		House cairns = new House();cairns.name = "CAIRNS";
-		House skye = new House();skye.name = "SKYE";
-		House[] houses = {amli, cairns, skye};
-
-		Consumer csm = new Consumer();
-		csm.name = "CSM";
-		
-		csm.visitsApp(app);
-		House[] houses = app.displayAvailableHouses();
-		House house = csm.findTheHouseInterestedIn(houses);
-		csm.placeOrderForHouse(house)
-		Money money = csm.payMoneyToApp(app);
-		app.acceptMoneyFromConsumer(csm, money);
-	}
-
-}
