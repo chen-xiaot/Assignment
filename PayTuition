@@ -1,0 +1,47 @@
+Scenario : Pay tuition
+Description : A student wants to pay his tuition through myNEU account.
+
+Object : Student
+  State : name, neuid
+ 	Behavior : visitNeuWebsite(),  payMoneyToNeuWebsite()
+	
+Object : NeuWebsite
+  State : Collection of StudentAccounts
+  Behavior : displayStudentAccount(), acceptMoneyFromStudent()
+	
+Object : Money
+	state : amount	
+
+class PayTuition{
+	public static void main(String args[]){
+	
+		NeuWebsite myNEU = new NeuWebsite();
+
+		Student stu1 = new Student();
+		stu1.name = "Stu1";
+		stu1.neuid = "123456";
+		
+		stu1.visitsNeuWebsite(myNEU);
+    Money money = stu1.payMoneyToNeuWebsite(myNEU);
+    myNEU.acceptMoneyFromStudent(stu1, money);
+	}
+
+}
+
+class Money{
+	float amount;
+}
+
+class Student{
+	String name;
+	String neuid;
+	void visitNeuWebsite(NeuWebsite){}
+	Money payMoneyToNeuWebsite(NeuWebsite){}
+	
+}
+
+class NeuWebsite{
+	Account[] accounts; 
+	Account[] displayStudentAccount(){}
+	void acceptMoneyFromStudent(Student s, Money money){}
+}
