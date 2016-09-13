@@ -25,13 +25,12 @@ class BookingAnAirbnb{
 public static void main(String args[]){
 	App airbnb = new App();
 
-	House amli = new House();amli.name = "AMLI";
-	House cairns = new House();cairns.name = "CAIRNS";
-	House skye = new House();skye.name = "SKYE";
+	House amli = new House();amli.name = "AMLI";amli.address = "asdfg";
+	House cairns = new House();cairns.name = "CAIRNS";cairns.address = "zxcvb";
+	House skye = new House();skye.name = "SKYE";skye.address = "qwert";
 	House[] houses = {amli, cairns, skye};
-
 	Consumer csm = new Consumer();
-	csm.name = "CSM";
+	csm.name = "CSM";csm.phoneNumber = "1234567890";
 		
 	csm.visitsApp(app);
 	House[] houses = app.displayAvailableHouses();
