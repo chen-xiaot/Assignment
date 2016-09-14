@@ -1,0 +1,18 @@
+Scenario : Travelling to LA
+Description : A tourist is trying to find the cheapest flight to LA.
+
+Object : Tourist
+		State : name, id;
+		Behavior : visitWebsite(), findFlights(), placeOrderForFlight(), payMoneyToWebsite()
+	
+	
+Object : FlightWebsite
+		State : Collection of Flights
+		Behavior : displayAvailableFlights(), acceptMoneyFromConsumer()
+	
+Object : Flight
+		State : name, price
+		Behavior : getName(), getPrice();
+	
+	Object : Money
+		state : amount	
