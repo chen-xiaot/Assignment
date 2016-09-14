@@ -19,8 +19,6 @@ Object : Money
 	state : amount	
 
 
-
-
 class BookingAnAirbnb{
 public static void main(String args[]){
 	App airbnb = new App();
@@ -30,19 +28,17 @@ public static void main(String args[]){
 	House skye = new House();skye.name = "SKYE";skye.address = "qwert";
 	House[] houses = {amli, cairns, skye};
 	Consumer csm = new Consumer();
-	csm.name = "CSM";csm.phoneNumber = "1234567890";
+	csm.name = "CSM";csm.phoneNumber = "1234567890";csm.emailAddress="12345@gmail.com";
 		
-	csm.visitsApp(app);
-	House[] houses = app.displayAvailableHouses();
+	csm.visitsApp(airbnb);
+	House[] houses = airbnb.displayAvailableHouses();
 	House house = csm.findTheHouseInterestedIn(houses);
 	csm.placeOrderForHouse(house)
-	Money money = csm.payMoneyToApp(app);
-	app.acceptMoneyFromConsumer(csm, money);
+	Money money = csm.payMoneyToApp(airbnb);
+	airbnb.acceptMoneyFromConsumer(csm, money);
 	}
 
 }
-
-
 
 
 class Consumer{
