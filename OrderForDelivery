@@ -1,0 +1,74 @@
+Scenario : Order for delivery
+Description : A consumer is going to order a delivery through phone calls.
+
+Object : Consumer
+  	State : name, address, phoneNumber
+  	Behavior : makePhoneCall(), OrderFood(), payMoneyForDelivery()
+	
+Object : FoodShop
+    State : Collection of food, shopPhoneNumber
+    Behavior : displayAvailableFood(), shipFoodToConsumer(), acceptMoneyFromConsumer()
+
+	
+Object : Food
+		State : name, price
+		Behavior : getName(), getPrice()
+	
+Object : Money
+    State : amount	
+    
+class Consumer{
+
+    String name, address, phoneNumer;
+    void makePhoneCall(shopPhoneNumber spm){}
+    void OrderFood(Food list){}
+    Money payMoneyForDelivery(FoodShop fs){}
+    
+}
+
+class FoodShop{
+
+    String shopPhoneNumber;
+    Food[] displayAvailableFood(){}
+    void shipFoodToConsumer(Consumer c, Food f){}
+    Money acceptMoneyFromConsumer(Consumer c, Money m){}
+    
+  }
+  
+class Food{
+
+   String name;
+	 float price;
+	 String getName(){}
+	 float getPrice(){}
+	 
+}
+
+class Money{
+	 float amount;
+}
+
+
+class OrderForDelivery{
+	public static void main(String args[]){
+	
+	FoodShop wholeFood = new FoodShop();
+	wholeFood.shopPhoneNumber = "1234567890";
+	Food milk = new Food(); milk.name = "Milk";
+	Food pizza = new Food(); pizza.name = "Pizza";
+	Food omelette = new Food(); omelette.name = "Omelette";
+	Food list = {milk, pizza, omelette};
+	
+	Consumer csm = new Consumer();
+	csm.name = "CSM"; csm.address = "qweasdzxc"; csm.phoneNumber = "0987654321";
+	csm.makePhoneCall(wholeFood.shopPhoneNumber);
+	Food[] list = wholeFood.displayAvailableFood();
+	csm.OrderFood(list);
+	Money m = csm.payMoneyForDelivery(wholeFood);
+	wholeFood.acceptMoneyFromConsumer(csm, m);
+	
+}
+
+
+
+	
