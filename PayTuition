@@ -2,15 +2,16 @@ Scenario : Pay tuition
 Description : A student wants to pay his tuition through myNEU account.
 
 Object : Student
-  State : name, neuid
- 	Behavior : visitNeuWebsite(),  payMoneyToNeuWebsite()
+      State : name, neuid
+      Behavior : visitNeuWebsite(),  payMoneyToNeuWebsite()
 	
 Object : NeuWebsite
-  State : Collection of StudentAccounts
-  Behavior : displayStudentAccount(), acceptMoneyFromStudent()
+      State : Collection of StudentAccounts
+      Behavior : displayStudentAccount(), acceptMoneyFromStudent()
 	
 Object : Money
-	state : amount	
+      state : amount	
+
 
 class PayTuition{
 	public static void main(String args[]){
@@ -25,6 +26,7 @@ class PayTuition{
 	}
 
 }
+
 
 class Money{
 	float amount;
