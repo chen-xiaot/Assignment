@@ -56,13 +56,13 @@ class TravellingToLA{
 		
 		Flight[] flights = {aa111, bb222, cc333};
 
-		Consumer michael = new Consumer();
-		michael.name = "Michael";
+		Tourist trs = new Tourist();
+		trs.name = "TRS";
 		
-		michael.visitsWebsite(amazon);
-		Book[] books = amazon.displayAvailableBooks();
-		Book book = michael.findTheBookInterestedIn(books);
-		michael.placeOrderForBook(book)
-		Money money = michael.payMoneyToWebsite(amazon);
-		amazon.acceptMoneyFromConsumer(michael, money);
+		trs.visitsWebsite(allflights);
+		Flight[] flights = allflights.displayAvailableFlights();
+		trs.comparePrice(aa111.price, bb222.price, cc333.price);
+		trs.placeOrderForFlight(flight);
+		Money m = trs.payMoneyToWebsite(allflights);
+		allflights.acceptMoneyFromTourist(trs, m);
 	}
