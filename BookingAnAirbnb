@@ -2,18 +2,18 @@ Scenario : Booking an Airbnb
 Description : A tourist wants to book a house on Airbnb app.
 
 
-Object : Consumer
+Object : Tourist
 	State : name, emailAddress,phoneNumber
 	Behavior : visitApp(), findHouses(), placeOrderForHouse(), payMoneyToApp()
 	
 	
 Object : App
 	State : Collection of Houses
-	Behavior : displayAvailableHouses(), acceptMoneyFromConsumer()
+	Behavior : displayAvailableHouses(), acceptMoneyFromTourist()
 	
 Object : House
 	State : name, price, address
-	Behavior : getPrice(), getName(),getAddress()
+	Behavior : getName(), getPrice(),getAddress()
 	
 Object : Money
 	state : amount	
@@ -21,27 +21,30 @@ Object : Money
 
 class BookingAnAirbnb{
 public static void main(String args[]){
-	App airbnb = new App();
 
+	App airbnb = new App();
+	
 	House amli = new House();amli.name = "AMLI";amli.address = "asdfg";
 	House cairns = new House();cairns.name = "CAIRNS";cairns.address = "zxcvb";
 	House skye = new House();skye.name = "SKYE";skye.address = "qwert";
 	House[] houses = {amli, cairns, skye};
-	Consumer csm = new Consumer();
-	csm.name = "CSM";csm.phoneNumber = "1234567890";csm.emailAddress="12345@gmail.com";
-		
-	csm.visitsApp(airbnb);
+	
+	Tourist trs = new Tourist();
+	trs.name = "TRS";trs.phoneNumber = "1234567890";trs.emailAddress="12345@gmail.com";
+	
+	trs.visitsApp(airbnb);
 	House[] houses = airbnb.displayAvailableHouses();
-	House house = csm.findTheHouseInterestedIn(houses);
-	csm.placeOrderForHouse(house)
-	Money money = csm.payMoneyToApp(airbnb);
-	airbnb.acceptMoneyFromConsumer(csm, money);
+	House house = trs.findTheHouseInterestedIn(houses);
+        trs.placeOrderForHouse(house)
+	Money money = trs.payMoneyToApp(airbnb);
+	airbnb.acceptMoneyFromTourist(trs, money);
+	
 	}
 
 }
 
 
-class Consumer{
+class Tourist{
 	String name;
 	String emailAddress;
 	String phoneNumber;
@@ -55,17 +58,18 @@ class Consumer{
 class App{
 	House[] houses; 
 	House[] displayAvailableHouses(){}
-	void acceptMoneyFromConsumer(Consumer c, Money money){}
+	void acceptMoneyFromTourist(Tourist t, Money money){}
 	
 }
 
 class House{
 	String name;
 	String address;
-	Float price;
-	Float getPrice(){}
+	float price;
 	String getName(){}
 	String getAddress(){}
+	float getPrice(){}
+
 
 }
 
