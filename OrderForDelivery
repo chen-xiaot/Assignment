@@ -3,25 +3,26 @@ Description : A consumer is going to order a delivery through phone calls.
 
 Object : Consumer
   	State : name, address, phoneNumber
-  	Behavior : makePhoneCall(), OrderFood(), payMoneyForDelivery()
+  	Behavior : makePhoneCall(), chooseFood(), orderFood(), payMoneyForDelivery()
 	
 Object : FoodShop
-    State : Collection of food, shopPhoneNumber
-    Behavior : displayAvailableFood(), shipFoodToConsumer(), acceptMoneyFromConsumer()
+        State : Collection of food, shopPhoneNumber
+        Behavior : displayAvailableFood(), shipFoodToConsumer(), acceptMoneyFromConsumer()
 
 	
 Object : Food
-		State : name, price
-		Behavior : getName(), getPrice()
+	State : name, price
+	Behavior : getName(), getPrice()
 	
 Object : Money
-    State : amount	
+        State : amount	
     
 class Consumer{
 
     String name, address, phoneNumer;
     void makePhoneCall(shopPhoneNumber spm){}
-    void OrderFood(Food list){}
+    Food chooseFood(Food list[]){}
+    void orderFood(Food list[]){}
     Money payMoneyForDelivery(FoodShop fs){}
     
 }
@@ -37,7 +38,7 @@ class FoodShop{
   
 class Food{
 
-   String name;
+         String name;
 	 float price;
 	 String getName(){}
 	 float getPrice(){}
@@ -57,12 +58,13 @@ class OrderForDelivery{
 	Food milk = new Food(); milk.name = "Milk";
 	Food pizza = new Food(); pizza.name = "Pizza";
 	Food omelette = new Food(); omelette.name = "Omelette";
-	Food list = {milk, pizza, omelette};
+	Food lists = {milk, pizza, omelette};
 	
 	Consumer csm = new Consumer();
 	csm.name = "CSM"; csm.address = "qweasdzxc"; csm.phoneNumber = "0987654321";
 	csm.makePhoneCall(wholeFood.shopPhoneNumber);
-	Food[] list = wholeFood.displayAvailableFood();
+	Food[] lists[] = wholeFood.displayAvailableFood();
+	Food[] list[] = csm.chooseFood(list[]);
 	csm.OrderFood(list);
 	Money m = csm.payMoneyForDelivery(wholeFood);
 	wholeFood.acceptMoneyFromConsumer(csm, m);
