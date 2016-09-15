@@ -57,7 +57,7 @@ class TravellingToLA{
 		Flight[] flights = {aa111, bb222, cc333};
 
 		Tourist trs = new Tourist();
-		trs.name = "TRS";
+		trs.name = "TRS"; trs.id = "123456";
 		
 		trs.visitsWebsite(allflights);
 		Flight[] flights = allflights.displayAvailableFlights();
