@@ -2,17 +2,67 @@ Scenario : Travelling to LA
 Description : A tourist is trying to find the cheapest flight to LA.
 
 Object : Tourist
-		State : name, id;
-		Behavior : visitWebsite(), findFlights(), placeOrderForFlight(), payMoneyToWebsite()
+	State : name, id;
+	Behavior : visitWebsite(), findAvailableFlights(), comparePrice(), placeOrderForFlight(), payMoneyToWebsite()
 	
 	
 Object : FlightWebsite
-		State : Collection of Flights
-		Behavior : displayAvailableFlights(), acceptMoneyFromConsumer()
+	State : Collection of Flights
+	Behavior : displayAvailableFlights(), acceptMoneyFromTourist()
 	
 Object : Flight
-		State : name, price
-		Behavior : getName(), getPrice();
+	State : name, price
+	Behavior : getName(), getPrice();
 	
-	Object : Money
-		state : amount	
+Object : Money
+	state : amount	
+		
+class Tourist{
+	String name, id;
+	void visitWebsite(FlightWebsite fw){}
+	Flight findAvailableFlights(Flight flights[]){}
+	Money comparePrice(Money money[]){}
+	void placeOrderForFlight(Flight flight){}
+	Money payMoneyToWebsite(FlightWebsite fw){}
+	
+}
+
+class FlightWebsite{
+	Flight flights[];
+	Flight[] displayAvailableFlights(){}
+	void acceptMoneyFromTourist(Tourist t, Money m){}
+			
+}
+
+class Flight{
+	String name;
+	float price;
+	String getName(){}
+	float getPrice(){}
+
+}
+
+class Money{
+	float amount;
+}
+
+class TravellingToLA{
+	public static void main(String args[]){
+	
+		FlightWebsite allflights = new FlightWebsite();
+		Flight aa111 = new Flight();aa111.price = 1000;
+		Flight bb222 = new Flight();bb222.price = 2000;
+		Flight cc333 = new Flight();cc333.price = 3000;
+		
+		Flight[] flights = {aa111, bb222, cc333};
+
+		Consumer michael = new Consumer();
+		michael.name = "Michael";
+		
+		michael.visitsWebsite(amazon);
+		Book[] books = amazon.displayAvailableBooks();
+		Book book = michael.findTheBookInterestedIn(books);
+		michael.placeOrderForBook(book)
+		Money money = michael.payMoneyToWebsite(amazon);
+		amazon.acceptMoneyFromConsumer(michael, money);
+	}
