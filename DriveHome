@@ -1,0 +1,19 @@
+Scenario : Drive home
+Description : A student is driving home from school.
+
+
+Object : Student
+		State : name, address
+		Behavior : visitWebsite(), findBooks(), placeOrderForBook(), payMoneyToWebsite()
+	
+	
+Object : ShoppingWebsite
+		State : Collection of Books
+		Behavior : displayAvailableBooks(), shipABookToConsumer(), acceptMoneyFromConsumer()
+	
+Object : Book
+		State : name, price, author
+		Behavior : getPrice(), getName()
+	
+Object : Money
+		state : amount	
