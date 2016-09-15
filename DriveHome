@@ -4,16 +4,61 @@ Description : A student is driving home from school.
 
 Object : Student
 		State : name, address
-		Behavior : visitWebsite(), findBooks(), placeOrderForBook(), payMoneyToWebsite()
+		Behavior : useMapApp(), findRoutes(), selectARoute(), followTheRoute()
 	
 	
-Object : ShoppingWebsite
-		State : Collection of Books
-		Behavior : displayAvailableBooks(), shipABookToConsumer(), acceptMoneyFromConsumer()
+Object : MapApp
+		State : Showing routes
+		Behavior : displayAvailableRoutes()
 	
-Object : Book
-		State : name, price, author
-		Behavior : getPrice(), getName()
+Object : Route
+		State : name, length
+		Behavior : getName(), getLength()
+		
+
+class Student{
+
+	String name, address;
+	void useMapApp(MapApp gmap)){}
+	Route findRoutes(Route routes[]){}
+	Route selectARoute(Route route){}
+	void followTheRoute(Route route){}
 	
-Object : Money
-		state : amount	
+}
+	
+class MapApp{
+
+	Route[] routes;
+	Route[] displayAvailableRoutes(){}
+			
+}
+
+class Route{
+
+	String name, length;
+	String getName(){}
+	String getLength(){}
+	
+}
+
+
+class DriveHome{
+	public static void main(String args[]){
+	
+		MapApp gmap = new MapApp();
+		Route a11 = new Route(); a11.name = "A11"; a11.length = 1000;
+		Route b22 = new Route(); b22.name = "B22"; b22.length = 1200;
+		Route[] routes = {a11, b22};
+
+		Student stu = new Student();
+		stu.name = "STU"; stu.address = "qwerasd";
+		
+		stu.useMapApp(gmap);
+		Route[] routes = gmap.displayAvailableRoutes();
+		Route route = stu.findRoutes(routes);
+		stu.selectARoute(route);
+		stu.followTheRoute(route);
+	        
+	}
+
+}
