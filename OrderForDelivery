@@ -30,8 +30,9 @@ class Consumer{
 class FoodShop{
 
     String shopPhoneNumber;
+    Food[] list, lists;
     Food[] displayAvailableFood(){}
-    void shipFoodToConsumer(Consumer c, Food f){}
+    void shipFoodToConsumer(Consumer c, Food list){}
     Money acceptMoneyFromConsumer(Consumer c, Money m){}
     
   }
@@ -64,8 +65,8 @@ class OrderForDelivery{
 	csm.name = "CSM"; csm.address = "qweasdzxc"; csm.phoneNumber = "0987654321";
 	csm.makePhoneCall(wholeFood.shopPhoneNumber);
 	Food[] lists[] = wholeFood.displayAvailableFood();
-	Food[] list[] = csm.chooseFood(list[]);
-	csm.OrderFood(list);
+	Food[] list[] = csm.chooseFood(lists[]);
+	csm.OrderFood(list[]);
 	Money m = csm.payMoneyForDelivery(wholeFood);
 	wholeFood.acceptMoneyFromConsumer(csm, m);
 	
