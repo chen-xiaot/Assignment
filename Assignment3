@@ -292,7 +292,7 @@ public class Assignment3 {
 		System.out.println("                      ");
 		
 		System.out.println("_____reverseVowels_____");
-		System.out.println("Enter String");
+		System.out.println("Enter String lower case");
 		String n5 = scanner.next();
 		assignment3.reverseVowels(n5);
 		System.out.println("----------------------");
