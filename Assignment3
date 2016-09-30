@@ -32,6 +32,9 @@ public class Assignment3 {
 		public int countDigits(int n) {
 			
 			int count,result;
+			if(n<0){
+				n=-1*n;
+			}
 			String str = String.valueOf(n);
 	        count=str.length();
 	        result = n%count;
@@ -267,7 +270,7 @@ public class Assignment3 {
 		System.out.println("                      ");
 		
 		System.out.println("_____countDigits_____");
-		System.out.println("Enter N>=0");
+		System.out.println("Enter N");
 		
 		int n2 = scanner.nextInt();
 		assignment3.countDigits(n2);
