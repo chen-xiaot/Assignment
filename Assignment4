@@ -1,4 +1,4 @@
-/*
+/* 1
  * Assignment3Test
  */
 
@@ -79,7 +79,7 @@ public class Assignment3Test {
 
 
 
-/*
+/* 2
  * MusicAlbum
  */
  
@@ -122,7 +122,7 @@ public class MusicAlbum {
 
 
 
-/*
+/* 3
  * GasTank
  */
  
@@ -164,7 +164,7 @@ public void setAmount(double amount) {
 
 
 
-/*
+/* 4
  * Car
  */
  
@@ -232,7 +232,7 @@ public class Car {
 
 
 
-/*
+/* 5
  * Driver
  */
  
