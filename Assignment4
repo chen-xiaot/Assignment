@@ -73,3 +73,239 @@ public class Assignment3Test {
 		assertEquals(expected,output);
 	}
 }
+
+
+
+
+
+
+/*
+ * MusicAlbum
+ */
+ 
+public class MusicAlbum {
+	
+	private String albumTitle;
+	private String singer;
+	private double price;
+
+	public MusicAlbum(String albumTitle, String singer, double price){
+		this.albumTitle = albumTitle;
+		this.singer = singer;
+		this.price = price;
+	}
+
+
+	public String getAlbumTitle() {
+		return albumTitle;
+	}
+
+
+	public String getSinger() {
+		return singer;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+
+}
+
+
+
+
+
+
+/*
+ * GasTank
+ */
+ 
+public class GasTank {
+	
+	double amount = 0;
+	
+
+void addGas(double plus){
+	amount+=plus;
+}
+
+boolean useGas(double minus){
+	if(amount<=minus){
+		return false;
+	}
+	else {
+		amount-=minus;
+		return true;
+	}
+	
+}
+
+double getGasLevel(){
+	return amount;
+}
+
+public double getAmount() {
+	return amount;
+}
+
+public void setAmount(double amount) {
+	this.amount = amount;
+}
+}
+
+
+
+
+
+
+/*
+ * Car
+ */
+ 
+public class Car {
+	
+	private String carBrand;
+	private String carName;
+	private String carColor;
+	private double liter;
+	private double price;
+
+	public Car(String carBrand, String carName, String carColor, double liter,double price){
+		this.carBrand = carBrand;
+		this.carName = carName;
+		this.carColor = carColor;
+		this.liter= liter;
+		this.price = price;
+	}
+	
+	public static void main(String[] args) {
+	
+	}
+
+	public String getCarBrand() {
+		return carBrand;
+	}
+
+	public void setCarBrand(String carBrand) {
+		this.carBrand = carBrand;
+	}
+
+	public String getCarName() {
+		return carName;
+	}
+
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
+
+	public String getCarColor() {
+		return carColor;
+	}
+
+	public void setCarColor(String carColor) {
+		this.carColor = carColor;
+	}
+
+	public double getLiter() {
+		return liter;
+	}
+
+	public void setLiter(double liter) {
+		this.liter = liter;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+}
+
+
+
+/*
+ * Driver
+ */
+ 
+public class Driver {
+
+	private String name;
+	private String licenseNumber;
+	private int age;
+	private boolean gender;
+
+	public Driver(String name, String licenseNumber, int age, boolean gender){
+		this.name=name;
+		this.licenseNumber=licenseNumber;
+		this.age=age;
+		this.gender=gender;
+
+	}
+	
+	public static void main(String[] args) {
+		
+	      Driver driver=new Driver("David", "112233", 30, true);
+	      System.out.println("This driver's name : "+driver.getName()+". "+" Driver's license number : "+ driver.getLicenseNumber()+". "+
+	    		  " Driver's age : "+driver.getAge()+". "+" Driver's gender:"+driver.isGender()+"  true:male, false:female");
+	      System.out.println("                 ");
+	      Car car=new Car("Audi","A6","Black",2.0,40000);
+	      System.out.println(driver.getName()+" owns a sedan");
+	      System.out.println("The sedan's brand: "+car.getCarBrand()+". "+"The sedan's name: "+car.getCarName()+". "
+	    		  +"The sedan's color: "+car.getCarColor()+". "+"The sedan's liter: "+car.getLiter()+". "
+	    		  +"The sedan's price: $"+car.getPrice()+". ");
+	      System.out.println("                 ");
+	      System.out.println(driver.getName()+" is going to take a road trip");
+	      GasTank gastank=new GasTank();
+	      gastank.setAmount(20.0);
+	      System.out.println(driver.getName()+"'s car now has "+gastank.getAmount()+" gallon fuel");
+	      System.out.println(driver.getName()+" was going to add 100 gallon gas");
+	      gastank.addGas(100.0);
+	      System.out.println("The car has "+gastank.getAmount()+" gallon fuel now");
+	      System.out.println("                 ");
+	      gastank.useGas(50.0);
+	      System.out.println("After driving several hours, the car now has "+gastank.getAmount()+" gallon fuel now");
+	      System.out.println(driver.getName()+" was driving......");
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLicenseNumber() {
+		return licenseNumber;
+	}
+
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+}
