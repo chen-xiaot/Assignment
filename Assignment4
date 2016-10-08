@@ -232,10 +232,10 @@ public class Car {
 
 
 
+
 /* 5
  * Driver
  */
- 
 public class Driver {
 
 	private String name;
@@ -253,28 +253,76 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		
-	      Driver driver=new Driver("David", "112233", 30, true);
-	      System.out.println("This driver's name : "+driver.getName()+". "+" Driver's license number : "+ driver.getLicenseNumber()+". "+
-	    		  " Driver's age : "+driver.getAge()+". "+" Driver's gender:"+driver.isGender()+"  true:male, false:female");
+	      Driver driver1=new Driver("David", "112233", 30, true);
+	      driver1.getDriversInformation(driver1);
 	      System.out.println("                 ");
+	      
 	      Car car=new Car("Audi","A6","Black",2.0,40000);
-	      System.out.println(driver.getName()+" owns a sedan");
-	      System.out.println("The sedan's brand: "+car.getCarBrand()+". "+"The sedan's name: "+car.getCarName()+". "
-	    		  +"The sedan's color: "+car.getCarColor()+". "+"The sedan's liter: "+car.getLiter()+". "
-	    		  +"The sedan's price: $"+car.getPrice()+". ");
+	      System.out.println(driver1.getName()+" owns a car");
+	      driver1.getCarsInformation(car);
 	      System.out.println("                 ");
-	      System.out.println(driver.getName()+" is going to take a road trip");
+	      
+	      
 	      GasTank gastank=new GasTank();
 	      gastank.setAmount(20.0);
-	      System.out.println(driver.getName()+"'s car now has "+gastank.getAmount()+" gallon fuel");
-	      System.out.println(driver.getName()+" was going to add 100 gallon gas");
-	      gastank.addGas(100.0);
-	      System.out.println("The car has "+gastank.getAmount()+" gallon fuel now");
+	      driver1.driverCheckGas(gastank);
+	      System.out.println(driver1.getName()+" is going to take a road trip");
 	      System.out.println("                 ");
-	      gastank.useGas(50.0);
-	      System.out.println("After driving several hours, the car now has "+gastank.getAmount()+" gallon fuel now");
-	      System.out.println(driver.getName()+" was driving......");
+
+	      driver1.driverAddGas(gastank, 100);
+	      driver1.drive(driver1);
+	      System.out.println("                 ");
+
+	      driver1.driverUseGas(gastank, 5.5);
+
+		  driver1.drive(driver1);
+    }
+
+
+	public void getDriversInformation(Driver driver){
+		
+		System.out.println("This driver's name : "+driver.getName()+". "+" Driver's license number : "+ driver.getLicenseNumber()+". "+
+	    		  " Driver's age : "+driver.getAge()+". "+" Driver's gender:"+driver.isGender()+"  true:male, false:female");		
 	}
+	
+	public void getCarsInformation(Car car){
+		 System.out.println("The car's brand: "+car.getCarBrand()+". "+"The car's name: "+car.getCarName()+". "
+	    		  +"The car's color: "+car.getCarColor()+". "+"The car's liter: "+car.getLiter()+". "
+	    		  +"The car's price: $"+car.getPrice()+". ");
+	}
+	
+	
+	
+	
+	public void drive(Driver driver){
+		
+		System.out.println(driver.getName()+" continued driving.");
+		
+	}
+	
+	
+	public double driverCheckGas(GasTank gastank){
+		System.out.println("The car has "+gastank.getAmount()+" gallon fuel.");
+		return gastank.getAmount();
+	}
+	
+	public void driverAddGas(GasTank gastank, double n){
+	     gastank.addGas(n);
+		 System.out.println("The driver adds "+n+" gallon fuel");
+		 System.out.println("The car has "+gastank.getAmount()+" gallon fuel now.");
+
+	}
+	
+	public void driverUseGas(GasTank gastank, double hour){
+		 double gasUsePerHour = 10;
+		 double totalUse= hour*gasUsePerHour;
+	     gastank.useGas(totalUse);
+		 System.out.println("The driver used "+totalUse+" gallon fuel");
+		 System.out.println("The car has "+gastank.getAmount()+" gallon fuel now.");
+
+	}
+	
+	
 
 	public String getName() {
 		return name;
