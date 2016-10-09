@@ -357,3 +357,114 @@ public class Driver {
 	}
 
 }
+
+
+
+
+
+/* Bonus
+ * Stack
+ */
+public class Stack {
+
+	int[] a=new int[10];
+	int count=0;
+	public void push(int n){
+		if(count<10){
+			System.out.println("push "+n+" to stack");
+			a[count]=n;
+			count++;
+		}
+		else{
+			System.out.println("overflow");
+		}
+		}	
+	
+	public void getStack(){
+		
+		 for(int i=0; i<count;i++){
+	        	System.out.print(a[i]+" ");
+	        }
+	        }
+
+	public int pop(int p){
+		System.out.println("pop "+p);
+		if(count>1){
+			count--;
+        	return p ;
+        }
+		else{
+			System.out.println("underflow");
+			return 0;
+	}
+	}
+	
+	public static void main(String[] args) {
+
+		Stack stack=new Stack();
+		stack.push(5);
+		stack.getStack();
+		System.out.println();
+		stack.push(10);
+		stack.getStack();
+		System.out.println();
+		stack.push(15);
+		stack.getStack();
+		System.out.println();
+		stack.push(20);
+		stack.getStack();
+		System.out.println();
+		stack.push(25);
+		stack.getStack();
+		System.out.println();
+		stack.push(30);
+		stack.getStack();
+		System.out.println();
+		stack.push(35);
+		stack.getStack();
+		System.out.println();
+		stack.push(40);
+		stack.getStack();
+		System.out.println();
+		stack.push(45);
+		stack.getStack();
+		System.out.println();
+		stack.push(50);
+		stack.getStack();
+		System.out.println();
+		stack.push(55);
+		stack.getStack();
+		System.out.println();
+		
+                stack.pop(50);
+		stack.getStack();
+		System.out.println();
+		stack.pop(45);
+		stack.getStack();
+		System.out.println();
+		stack.pop(40);
+		stack.getStack();
+		System.out.println();
+		stack.pop(35);
+		stack.getStack();
+		System.out.println();
+		stack.pop(30);
+		stack.getStack();
+		System.out.println();
+		stack.pop(25);
+		stack.getStack();
+		System.out.println();
+		stack.pop(20);
+		stack.getStack();
+		System.out.println();
+		stack.pop(15);
+		stack.getStack();
+		System.out.println();
+		stack.pop(10);
+		stack.getStack();
+		System.out.println();
+		stack.pop(5);
+	}
+
+}
+
