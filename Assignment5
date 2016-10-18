@@ -44,19 +44,21 @@ public class DessertShoppe {
 		String stringCents ="";
 		double newCents; 
 		
-		if(cents<100){
+		if(cents>=0 && cents<100){
 			stringCents+=".";
 			stringCents+=String.valueOf(cents);
 			return stringCents;
 		}
-		else{
+		else if(cents>=100){
 			newCents=(double)cents/100;
 			stringCents+=String.valueOf(newCents);
 			return stringCents;
 		}
-		
+		else 
+			return null;
 	}
 }
+
 
 /*
 The Candy class should be derived from the DessertItem class. 
