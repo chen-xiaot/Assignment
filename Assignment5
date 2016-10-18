@@ -319,6 +319,8 @@ public class Checkout {
 		String receipt = "";
 		int shopNameSpace=((DessertShoppe.maxsize+DessertShoppe.widthsize)-DessertShoppe.shopName.length())/2;
 		
+		receipt+="\n";
+		
 		for(int i=0;i<shopNameSpace; i++){
 			receipt+=" ";
 		}
@@ -331,6 +333,7 @@ public class Checkout {
 			receipt+="-";
 		}
 
+		receipt+="\n";
 		receipt+="\n";
 		
 		for(int i = 0; i < v1.size(); i++){
