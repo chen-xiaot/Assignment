@@ -1,0 +1,368 @@
+//DessertItem Class
+
+package assignment5;
+
+public abstract class DessertItem {
+	String name;
+	
+	
+	public DessertItem(){
+		
+	}
+	
+	public DessertItem(String name){
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public abstract int getCost();
+  
+}
+
+/*DessertShoppe Class
+ * The DessertShoppe class  contains constants such as the tax rate as well the name of the store, 
+ * the maximum size of an item name and the width used to display the costs of the items on the receipt.
+ * The DessertShoppe class also contains the cents2dollarsAndCentsmethod which takes an integer number of cents
+ * and returns it as a String formatted in dollars and cents. 
+ * For example, 105 cents would be returned as "1.05".
+ */
+package assignment5;
+
+public class DessertShoppe {
+	
+	double taxRate=0.065;
+	public static String shopName="M & M Dessert Shoppe";
+	
+	public static final int maxsize=25;
+	public static final int widthsize=6;
+	
+	public static String cents2dollarsAndCents(int cents){
+		
+		String stringCents ="";
+		double newCents; 
+		
+		if(cents<100){
+			stringCents+=".";
+			stringCents+=String.valueOf(cents);
+			return stringCents;
+		}
+		else{
+			newCents=(double)cents/100;
+			stringCents+=String.valueOf(newCents);
+			return stringCents;
+		}
+		
+	}
+}
+
+/*
+The Candy class should be derived from the DessertItem class. 
+A Candy item has a weight and a price per pound which are used to determine its cost. 
+For example, 2.30 lbs.of fudge @ .89 /lb. = 205 cents. 
+The cost should be rounded to the nearest cent.
+*/
+package assignment5;
+
+public class Candy extends DessertItem{
+	private String name;
+	private double weight;
+	private double pricePerPound;
+	
+    public Candy (String name,double weight,double pricePerPound){
+    	
+        this.name=name;
+    	this.weight=weight;
+    	this.pricePerPound=pricePerPound;
+    }
+	
+	public String getName() {
+		return name;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public double getPricePerPound() {
+		return pricePerPound;
+	}
+
+	@Override
+	public int getCost() {
+		int cost;
+		cost=(int) Math.round(this.weight*this.pricePerPound);
+		return cost;
+	}
+	@Override
+	public String toString(){
+		
+		int nameSpace,costSpace,totalSpace;
+		String candyReceipt="";
+		
+		candyReceipt+= weight+" lbs. @ " +DessertShoppe.cents2dollarsAndCents((int) pricePerPound) + " /lb." + "\n";
+		candyReceipt+= name;
+		
+		nameSpace=DessertShoppe.maxsize-name.length();
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(getCost()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			candyReceipt+=" ";
+		}
+		
+		candyReceipt+=DessertShoppe.cents2dollarsAndCents(getCost())+"\n";
+		return candyReceipt;
+	}
+
+}
+
+
+
+/*
+A Cookie item has a number and a price per dozen which are used to determine its cost. 
+For example, 4 cookies @ 399 cents /dz. = 133 cents. 
+The cost should be rounded to the nearest cent.
+*/
+package assignment5;
+
+public class Cookie extends DessertItem{
+
+	private int number;
+	private double pricePerDozen;
+
+	
+    public Cookie(String name, int number ,double pricePerDozen){
+        this.name=name;
+    	this.number=number;
+    	this.pricePerDozen=pricePerDozen;
+    }
+	
+	
+	@Override
+	public int getCost() {
+		int cost;
+		double numberOfDozen = (double)this.number/12;
+		cost=(int) Math.round(numberOfDozen*this.pricePerDozen);
+		return cost;
+	}
+	@Override
+	public String toString(){
+		int nameSpace,costSpace,totalSpace;
+		String cookieReceipt="";
+		
+		cookieReceipt+= number+" @ "+DessertShoppe.cents2dollarsAndCents((int) pricePerDozen) + " /dz." + "\n";
+		cookieReceipt+= name;
+		
+		nameSpace=DessertShoppe.maxsize-name.length();
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(getCost()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			cookieReceipt+=" ";
+		}
+				
+		cookieReceipt+=DessertShoppe.cents2dollarsAndCents(getCost())+"\n";
+		return cookieReceipt;
+	}
+
+}
+
+
+
+/*
+The IceCream class should be derived from the DessertItem class. 
+An IceCream item simply has a cost.
+The Sundae class should be derived from the IceCream class. 
+The cost of a Sundae is the cost of the IceCream plus the cost of the topping.
+*/
+package assignment5;
+
+public class IceCream extends DessertItem{
+	protected String name;
+	protected int number;
+	protected int price;
+	
+    public IceCream(String name, int price){
+        this.name=name;
+    	this.price=price;
+    }
+	
+	
+	@Override
+	public int getCost() {
+		int cost;
+		cost=this.price;
+		return cost;
+	}
+	
+	@Override
+	public String toString(){
+		int nameSpace,costSpace,totalSpace;
+		String icecreamReceipt="";
+		
+		icecreamReceipt+= name;
+		
+		nameSpace=DessertShoppe.maxsize-name.length();
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(getCost()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			icecreamReceipt+=" ";
+		}
+		
+		icecreamReceipt+=DessertShoppe.cents2dollarsAndCents(getCost())+"\n";
+		return icecreamReceipt;
+	}
+
+}
+
+
+/*
+The Sundae class should be derived from the IceCream class. 
+The cost of a Sundae is the cost of the IceCream plus the cost of the topping.
+*/
+package assignment5;
+
+public class Sundae extends IceCream{
+	private String toppingName;
+	private int toppingPrice;
+	
+	public Sundae(String name, int price, String toppingName, int toppingPrice) {
+		super(name, price);
+		this.toppingName=toppingName;
+		this.toppingPrice=toppingPrice;
+	}
+	
+	@Override
+	public int getCost() {
+		int cost;
+		cost=this.price+this.toppingPrice;
+		return cost;
+	}
+	
+	@Override
+	public String toString(){
+		int nameSpace,costSpace,totalSpace;
+		String sundaeReceipt="";
+		
+		sundaeReceipt+= toppingName+" Sundae with"+"\n";
+		sundaeReceipt+=name;
+		nameSpace=DessertShoppe.maxsize-name.length();
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(getCost()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			sundaeReceipt+=" ";
+		}
+		
+		sundaeReceipt+=DessertShoppe.cents2dollarsAndCents(getCost())+"\n";
+		return sundaeReceipt;
+	}
+
+}
+
+
+
+//Checkout  Class
+
+package assignment5;
+
+import java.util.Vector;
+
+public class Checkout {
+	
+	Vector v1;
+	
+	public Checkout(){
+		this.v1=  new Vector();
+	}
+	
+	
+	public int numberOfItems(){
+		return v1.size();
+	}
+	
+	public void enterItem(DessertItem item){
+		v1.addElement(item);
+	}
+	
+	public void clear(){
+		this.v1=  new Vector();
+	}
+	
+	
+	public int totalCost(){
+		int totalCost=0;
+		for(int i=0;i<v1.size();i++){
+			totalCost+=((DessertItem) v1.get(i)).getCost();
+		}
+		return totalCost;
+	}
+	
+	public int totalTax(){
+		DessertShoppe ds=new DessertShoppe();
+		int totalTax=0;
+		totalTax=(int) Math.round(this.totalCost()*ds.taxRate);
+		return totalTax;
+		
+	}
+	
+	public String toString(){
+		
+		int nameSpace,costSpace,totalSpace;
+		DessertItem item;
+		String receipt = "";
+		int shopNameSpace=((DessertShoppe.maxsize+DessertShoppe.widthsize)-DessertShoppe.shopName.length())/2;
+		
+		for(int i=0;i<shopNameSpace; i++){
+			receipt+=" ";
+		}
+		receipt+=DessertShoppe.shopName +"\n";
+		
+		for(int i=0;i<shopNameSpace; i++){
+			receipt+=" ";
+		}
+		for(int i=0;i<DessertShoppe.shopName.length(); i++){
+			receipt+="-";
+		}
+
+		receipt+="\n";
+		
+		for(int i = 0; i < v1.size(); i++){
+			item = (DessertItem)v1.get(i);
+			receipt += item.toString();
+		}
+		
+		receipt+="\n"+"Tax";
+		
+		nameSpace=DessertShoppe.maxsize-3;
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(totalTax()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			receipt+=" ";
+		}
+		
+		receipt+=DessertShoppe.cents2dollarsAndCents(totalTax());
+		
+		receipt+="\n"+"Total Cost";
+		
+		nameSpace=DessertShoppe.maxsize-10;
+		costSpace=DessertShoppe.widthsize-DessertShoppe.cents2dollarsAndCents(totalCost()+totalTax()).length();
+		totalSpace=nameSpace+costSpace;
+		
+		for(int i=0;i<totalSpace; i++){
+			receipt+=" ";
+		}
+		
+		receipt+=DessertShoppe.cents2dollarsAndCents(totalCost()+totalTax());
+		
+		return receipt;
+	}
+	
+	
+	
+	
