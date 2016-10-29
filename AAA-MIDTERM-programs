@@ -37,8 +37,6 @@ public class longestPalindrome {
 		longestPalindrome lp=new longestPalindrome();
 		System.out.println(lp.longestPalindrome("aabbccc"));
 		System.out.println(lp.longestPalindrome("Aabbccc"));
-		System.out.println(lp.longestPalindrome("Aa"));
-		
 	}
 
 }
