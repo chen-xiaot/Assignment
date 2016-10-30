@@ -12,8 +12,10 @@ public class longestPalindrome {
 		}
 		
 		for(int i=0; i<s.length(); i++){
-			letter[s.charAt(i)-'A']++;
-		}
+			letter[s.charAt(i)-'A']++;	// here will have OutOfBounds error:
+		}					// if s.charAt(i) is 'z'  =>   'z' - 'A' = 122 - 65 = 57;
+							// but the largest index of you array letter is 56;
+							// -2;
 		
 		for(int j=0;j<57;j++){
 
