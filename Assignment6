@@ -297,7 +297,7 @@ public static void main(String[] args){
 		ah.printPetInfoByOwner("Bobby");
 		
 		System.out.println("---printPetsBoarding---"+"\n");
-		ah.printPetsBoarding(1, 15, 2016);
+		ah.printPetsBoarding(1, 30, 2016);
 		
 	}
 
