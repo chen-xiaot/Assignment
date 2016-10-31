@@ -1,0 +1,304 @@
+// Class Pet
+
+package assignment6;
+
+public class Pet {
+
+	private String petName;
+	private String ownerName;
+	private String color;
+	protected int sex;
+	public static final int MALE =11;
+	public static final int FEMALE =22;
+	public static final int SPAYED =33;
+	public static final int NEUTERED =44;
+
+	Pet(String petName, String ownerName, String color){
+		this.petName=petName;
+		this.ownerName=ownerName;
+		this.color=color;
+
+	}
+
+	public String getSex() {
+		if(this.sex==11){
+			return "MALE";
+		}
+		else if(this.sex==22){
+			return "FEMALE";
+		}
+		else if(this.sex==33){
+			return "SPAYED";
+		}
+		else if(this.sex==44){
+			return "NEUTERED";
+		}
+		else
+			return "wrong sexid when setting sex";
+	}
+
+	public void setSex(int sexid) {
+		this.sex = sexid;
+	}
+
+	public String getPetName() {
+		return petName;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	@Override
+	public String toString() {
+
+		return petName+ " owned by "+ ownerName+"\n"+"Color: "+color+"\n"+"Sex: "+this.getSex();
+		
+	}
+
+}
+
+
+
+
+// Interface Boardable
+
+package assignment6;
+
+public interface Boardable {
+
+	void setBoardStart(int month, int day, int year); 
+	void setBoardEnd(int month, int day, int year); 
+	boolean boarding(int month, int day, int year); 
+	
+}
+
+
+
+
+// Class Cat
+
+package assignment6;
+
+public class Cat extends Pet implements Boardable {
+	
+	private String hairLength;
+	private int startMonth;
+	private int startDay;
+	private int startYear;
+	private int endMonth;
+	private int endDay;
+	private int endYear;
+
+	public Cat(String petName, String ownerName, String color,String hairLength) {
+		super(petName, ownerName, color);
+		this.hairLength=hairLength;
+	}
+
+	public String getHairLength() {
+		return hairLength;
+	}
+
+	@Override
+	public void setBoardStart(int startMonth, int startDay, int startYear) {
+		this.startMonth=startMonth;
+		this.startDay=startDay;
+		this.startYear=startYear;
+	}
+
+	@Override
+	public void setBoardEnd(int endMonth, int endDay, int endYear) {
+		this.endMonth=endMonth;
+		this.endDay=endDay;
+		this.endYear=endYear;
+	}
+
+	@Override
+	public boolean boarding(int month, int day, int year) {
+		if (year<startYear || year>endYear){
+			return false;
+		}
+		else if (month<startMonth || month>endMonth){
+			return false;
+		}
+		else if (day<startDay || day>endDay){
+			return false;
+		}
+		else 
+			return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Cat: "+"\n" + super.toString() + "\n" + "Hair: "+hairLength+ "\n"+"\n" ;
+	}
+
+}
+
+
+
+
+
+// Class Dog
+
+package assignment6;
+
+public class Dog extends Pet implements Boardable {
+	
+	private String size;
+	private int startMonth;
+	private int startDay;
+	private int startYear;
+	private int endMonth;
+	private int endDay;
+	private int endYear;
+	
+	public Dog(String petName, String ownerName, String color, String size) {
+		super(petName, ownerName, color);
+		this.size=size;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	@Override
+	public void setBoardStart(int startMonth, int startDay, int startYear) {
+		this.startMonth=startMonth;
+		this.startDay=startDay;
+		this.startYear=startYear;
+	}
+
+	@Override
+	public void setBoardEnd(int endMonth, int endDay, int endYear) {
+		this.endMonth=endMonth;
+		this.endDay=endDay;
+		this.endYear=endYear;
+	}
+
+	@Override
+	public boolean boarding(int month, int day, int year) {
+		if (year<startYear || year>endYear){
+			return false;
+		}
+		else if (month<startMonth || month>endMonth){
+			return false;
+		}
+		else if (day<startDay || day>endDay){
+			return false;
+		}
+		else 
+			return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Dog: "+"\n" + super.toString() + "\n" + "Size: "+size + "\n"+"\n";
+	}
+
+}
+
+
+
+
+// Class AnimalHospital
+
+package assignment6;
+
+import java.util.Vector;
+
+public class AnimalHospital {
+
+	Vector<Pet> v1;
+	
+	public AnimalHospital(){
+		this.v1=  new Vector<Pet>();
+	}
+
+	public void enterPet(Pet pet){
+		v1.addElement(pet);
+	}
+
+	public void printPetInfoByName(String name){
+		for(int i=0; i<v1.size();i++){
+			if(((Pet)v1.get(i)).getPetName()==name){
+				System.out.println(v1.get(i));
+			}
+		}
+	}
+	
+	public void printPetInfoByOwner(String name){
+		for(int i=0; i<v1.size();i++){
+			if(((Pet)v1.get(i)).getOwnerName()==name){
+				System.out.println(v1.get(i));
+			}
+		}
+	}
+	
+	public void printPetsBoarding(int month, int day, int year){
+		for(int i=0; i<v1.size();i++){
+			if(((Pet)v1.get(i)).getClass()==Cat.class){
+				if(((Cat) v1.get(i)).boarding(month, day, year)==true){
+					System.out.println(v1.get(i));
+				}
+			}
+		}
+		for(int i=0; i<v1.size();i++){
+			if(((Pet)v1.get(i)).getClass()==Dog.class){
+				if(((Dog) v1.get(i)).boarding(month, day, year)==true){
+					System.out.println(v1.get(i));
+				}
+			}
+		}
+	}	
+	
+}
+
+
+
+
+
+// Class AnimalHospitalTest
+
+package assignment6;
+
+public class AnimalHospitalTest {
+
+public static void main(String[] args){
+		
+		AnimalHospital ah=new AnimalHospital();
+		
+		Pet cat1=new Cat("Aaa", "Bobby","white","100");
+		Pet cat2=new Cat("Aaa", "David","black","200");
+		Pet dog1=new Dog("Bbb", "Bobby","white","medium ");
+		Pet dog2=new Dog("Bbb", "David","black","large ");
+		
+		cat1.setSex(Pet.MALE);
+		cat2.setSex(Pet.FEMALE);
+		dog1.setSex(Pet.SPAYED);
+		dog2.setSex(Pet.NEUTERED);
+		
+		((Cat) cat1).setBoardStart(1, 1, 2016); ((Cat) cat1).setBoardEnd(1, 30, 2016);
+		((Cat) cat2).setBoardStart(3, 1, 2016); ((Cat) cat2).setBoardEnd(3, 30, 2016);
+		((Dog) dog1).setBoardStart(1, 1, 2016); ((Dog) dog1).setBoardEnd(1, 30, 2016);
+		((Dog) dog2).setBoardStart(3, 1, 2016); ((Dog) dog2).setBoardEnd(3, 30, 2016);
+		
+		ah.enterPet(cat1); ah.enterPet(cat2);
+		ah.enterPet(dog1); ah.enterPet(dog2);
+		
+		System.out.println("---printPetInfoByName---"+"\n");
+		ah.printPetInfoByName("Aaa");
+		
+		System.out.println("---printPetInfoByOwner---"+"\n");
+		ah.printPetInfoByOwner("Bobby");
+		
+		System.out.println("---printPetsBoarding---"+"\n");
+		ah.printPetsBoarding(1, 15, 2016);
+		
+	}
+
+}
