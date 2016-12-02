@@ -128,7 +128,7 @@ public class Assignment2 {
 	public int[] fibonacciNumber(int n) {
 		
 		
-		    int[] fibo= new int[46];
+		int[] fibo= new int[46];
 	        fibo[1] = 1;
 	        fibo[2] = 1;
 	        for (int i = 3; i <= 46; i++) {
@@ -143,7 +143,7 @@ public class Assignment2 {
 	        }
 		
 		
-		return null;
+		return fibo;
 	}
 	    
 			
@@ -163,7 +163,7 @@ public class Assignment2 {
 		         sNew = String.valueOf(ch);
 		        System.out.println("Reversed Given String :" + sNew);
 		
-		return null;
+		return sNew;
 	}
 
 					
@@ -173,6 +173,7 @@ public class Assignment2 {
 	public int[] findTheLargestTwo(int[] nums) {
 		
 		int one, two,temp;
+		int[] newNum = new int[2];
 		one= nums[0];
 		two= nums[1];
 		
@@ -195,9 +196,12 @@ public class Assignment2 {
 		}
 		
 		System.out.println("the largest two integer are : " + one +" and "+ two) ;
+		newNum[0]=one;
+		newNum[1]=two;
+		System.out.println(newNum[0]);
+		System.out.println(newNum[1]);
 
-
-		return null;
+		return newNum;
 	}
 
 
@@ -290,9 +294,9 @@ public class Assignment2 {
 		System.out.println("_____personType_____");
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter age");
-        int age = scanner.nextInt();
+                int age = scanner.nextInt();
 		System.out.println("Enter gender[true(->female) or false(->male)]");
-        boolean gender = scanner.nextBoolean();
+                boolean gender = scanner.nextBoolean();
 		Person person = new Person (age, gender);
 		Assignment2 assignment2 = new Assignment2();
 		assignment2.personType(person);
