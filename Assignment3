@@ -21,7 +21,7 @@ public class Assignment3 {
 			
 			System.out.print(" }");
 			System.out.println();
-			return null;
+			return store;
 	}
 		
 		
@@ -39,7 +39,7 @@ public class Assignment3 {
 	        count=str.length();
 	        result = n%count;
 	        System.out.println(result);
-			return -1;
+			return result;
 	}
 	
 	
@@ -109,7 +109,7 @@ public class Assignment3 {
 			}
 
 			
-			return null;
+			return a;
 		}
 
 		
@@ -150,7 +150,7 @@ public class Assignment3 {
 			sNew = String.valueOf(ch);
 			System.out.println("Reversed Given String :" + sNew);
 			
-			return null;
+			return sNew;
 	}
 
 
@@ -176,7 +176,7 @@ public class Assignment3 {
 				count++;
 			}
 			}
-			return -1;
+			return count;
 		}
 
 		
@@ -213,7 +213,7 @@ public class Assignment3 {
 			
 			System.out.println(newstr);
 				
-			return null;
+			return newstr.toString().trim();
 	}
 		
 		
@@ -249,7 +249,7 @@ public class Assignment3 {
 			} 
 			System.out.println("how many characters were changed: "+ count);
 			
-			return -1;
+			return count;
 			
 		}
 	
