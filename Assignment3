@@ -30,11 +30,10 @@ public class Assignment3 {
 		 * For example, n = 100, return 1
 		 */
 		public int countDigits(int n) {
-			
-			int count,result;
 			if(n<0){
 				n=-1*n;
 			}
+			int count,result;
 			String str = String.valueOf(n);
 	        count=str.length();
 	        result = n%count;
@@ -92,21 +91,6 @@ public class Assignment3 {
 				a[i][j]=a[i-1][j-1] + a[i-1][j];
 			   }
 			}
-			
-			for (int i=0; i<n;i++){
-				
-			for(int k=0; k<2*(n-i)-1;k++){
-			     
-				System.out.print(" ");
-			}
-			
-			for(int j=0;j<=i;j++){
-			  
-				System.out.print(a[i][j]+"   ");
-			}
-			
-			    System.out.println(" ");
-			}
 
 			
 			return a;
@@ -148,7 +132,7 @@ public class Assignment3 {
 			}
 			
 			sNew = String.valueOf(ch);
-			System.out.println("Reversed Given String :" + sNew);
+			//System.out.println(sNew);
 			
 			return sNew;
 	}
@@ -168,7 +152,7 @@ public class Assignment3 {
 			int count=0;
 			for(int i=str.length()-1; i>=-1;i--){
 			if(i<0||ch[right]==' '){
-				System.out.println("the length of last word is "+count);
+				//System.out.println(count);
 				break;
 			}
 			if(ch[right]!=' '){
@@ -211,8 +195,7 @@ public class Assignment3 {
 			}
 			}
 			
-			System.out.println(newstr);
-				
+			//System.out.println(newstr);
 			return newstr.toString().trim();
 	}
 		
@@ -247,7 +230,7 @@ public class Assignment3 {
 					count++;
 				}
 			} 
-			System.out.println("how many characters were changed: "+ count);
+			//System.out.println(count);
 			
 			return count;
 			
@@ -287,14 +270,29 @@ public class Assignment3 {
 		System.out.println("_____generatePascalsTriangle_____");
 		System.out.println("Enter N");
 		int n4 = scanner.nextInt();
-		assignment3.generatePascalsTriangle(n4);
+		int[][] a = assignment3.generatePascalsTriangle(n4);
+		for (int i=0; i<n4;i++){
+			
+			for(int k=0; k<2*(n4 - i)-1;k++){
+			     
+				System.out.print(" ");
+			}
+			
+			for(int j=0;j<=i;j++){
+			  
+				System.out.print(a[i][j]+"   ");
+			}
+			
+			    System.out.println(" ");
+		}
 		System.out.println("----------------------");
 		System.out.println("                      ");
 		
 		System.out.println("_____reverseVowels_____");
-		System.out.println("Enter String lower case");
+		System.out.println("Enter String");
 		String n5 = scanner.next();
-		assignment3.reverseVowels(n5);
+		//assignment3.reverseVowels(n5);
+		System.out.println(assignment3.reverseVowels(n5));
 		System.out.println("----------------------");
 		System.out.println("                      ");
 		
@@ -302,7 +300,8 @@ public class Assignment3 {
 		System.out.println("Enter String");
 		String n6 = scanner.nextLine();
 		n6 = scanner.nextLine();
-		assignment3.lengthOfLastWord(n6);
+		//assignment3.lengthOfLastWord(n6);
+		System.out.println(assignment3.lengthOfLastWord(n6));
 		System.out.println("----------------------");
 		System.out.println("                      ");
 		
@@ -310,7 +309,8 @@ public class Assignment3 {
 		System.out.println("_____reverseString2_____");
 		System.out.println("Enter String");
 		String n7 = scanner.nextLine();
-		assignment3.reverseString2(n7);
+		//assignment3.reverseString2(n7);
+		System.out.println(assignment3.reverseString2(n7));
 		System.out.println("----------------------");
 		System.out.println("                      ");
 		
@@ -318,7 +318,8 @@ public class Assignment3 {
 		System.out.println("_____checkMessage_____");
 		System.out.println("Enter Message");
 		String n8 = scanner.next();
-		assignment3.checkMessage(n8);
+		//assignment3.checkMessage(n8);
+		System.out.println(assignment3.checkMessage(n8));
 		System.out.println("----------------------");
 		System.out.println("                      ");
 	}
