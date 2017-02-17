@@ -1,0 +1,48 @@
+function countDown(){
+	var d = new Date();
+	minute = document.getElementById("minute").value;
+	second = document.getElementById("second").value;
+	var endTime = d.getTime() + minute*60000 + second*1000;
+
+	var xyz = setInterval(function(){
+
+		var curTime = new Date().getTime();
+		var distance = endTime - curTime;
+		var displayMinute, displaySecond;
+		displayMinute = Math.floor(distance / (60 * 1000));
+		displaySecond = Math.round((distance % (60 * 1000)) / 1000);
+
+		document.getElementById("display").innerHTML = 
+		displayMinute + " m " + displaySecond + " s";
+
+		if(distance<=0){
+			document.getElementById("display").innerHTML = "DONE";
+			clearInterval(xyz);
+		}
+
+		},1);
+
+	}
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<!-- <link rel="stylesheet" type="text/css" href="./3rdASGN-HOME.css"> -->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta charset="utf-8">
+			<title>4th Assignment-Xiaotong Chen</title>
+			<script type="text/javascript" src="./countDown.js"></script> 
+		</head>
+		<body>
+				COUNT DOWN<br>
+				Minute:<input type="text" id="minute"><br>
+				Second:<input type="text" id="second"><br>
+			
+			<button id="startButton" type="button" 
+			onclick="countDown()">start</button>
+			<p id="display"></p>
+		</body>
+	</html>
