@@ -29,7 +29,7 @@ Second:<input type="text" id="second"/><br>
             var distance  = endTime - curTime;
             var displayMinute, displaySecond;
             displayMinute = Math.floor(distance / (60 * 1000));
-            displaySecond = Math.floor((distance % (60 * 1000)) / 1000);
+            displaySecond = Math.floor(distance / 1000 % 60);
 
             document.getElementById("display").innerHTML =
                 displayMinute + " m " + displaySecond + " s";
