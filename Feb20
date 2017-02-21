@@ -1,0 +1,669 @@
+//////////////html  line 23-29////////////////
+
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta charset="utf-8">
+			<title>portfolio site-Xiaotong Chen</title>
+			<link rel="stylesheet" type="text/css" href="./style1.css" id="css">
+		</head>
+		<body>
+			<nav class="left">
+				<a href="#linkabout">About</a>
+  				<a href="#linkeducation">Education</a>
+  				<a href="#linkproject">Project</a>
+  				<a href="#linkcontact">Contact</a>
+			</nav>
+			<nav class="right">
+				<a href="#linktop" >
+					<img src="./picbacktotop.png" alt="picbacktotop" class="picbacktotop">
+				</a>
+			</nav>
+			<ul class="aside">
+				<a href="#linktop"><li></li></a>
+				<a href="#linkabout"><li></li></a>
+				<a href="#linkeducation"><li></li></a>
+				<a href="#linkproject"><li></li></a>
+				<a href="#linkcontact"><li></li></a>
+			</ul>
+
+			<a id="linktop"></a>
+			<div class="welcomepage">
+				<h1>Carlton</h1>
+			</div>
+
+			<a id="linkabout"></a>
+			<div class="aboutpage">
+				<h1>I am Xiaotong Chen, a student pursuing a MS degree in Information Systems major at Northeastern University - Seattle</h1>
+				<a class="findPic"  href="./myPic.html"  onclick="findPic()">you find my picture here!</a>
+
+			</div>
+
+			<a id="linkeducation"></a>
+			<div id = "backtoeducation" class="educationpage">
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"></div>
+					<div class="inner"><p><strong>EDUCATION</strong></p><a href="./3rdASGN-education.html">more</a></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"><p><strong>Master of Science</strong></p><p>2016-now Northeastern University - Seattle</p></div>
+					<div class="inner"></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"></div>
+					<div class="inner"><p><strong>Bachelor of Engineering</strong></p><p>2011-2015 Zhejiang Univ of Sci & Tech, China</p></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"><p><strong>Summer School</strong></p><p>2014 Univ of Cal, Los Angeles</p></div>
+					<div class="inner"></div>
+					<div class="inner"></div>
+				</div>
+			</div>
+
+			<a id="linkproject"></a>
+			<div id = "backtoproject" class="projectpage">
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"></div>
+					<div class="inner"><p><strong>PROJECT</strong></p><a href="./3rdASGN-project.html">more</a></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"><p>4/2015-6/2015</p><p>Remote Monitoring System for Logistics Environment Parameters</p></div>
+					<div class="inner"></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"></div>
+					<div class="inner"><p>11/2014-11/2014</p><p>Multi-waveform Generator Based on VHDL</p></div>
+					<div class="inner"></div>
+				</div>
+
+				<div class="outer">
+					<div class="inner"></div>
+					<div class="inner"><p>06/2014-06/2014</p><p>Digital Audio Signal Processing System Utilizing the LabVIEW and Sound Card</p></div>
+					<div class="inner"></div>
+					<div class="inner"></div>
+				</div>
+			</div>
+
+			<a id="linkcontact"></a>
+			<div id="backtocontact" class="contactpage">
+				<h1>
+				<a href="Mailto:mrchenxt@foxmail.com?">mrchenxt@foxmail.com</a>
+				</h1>
+				<a href="./3rdASGN-contact.html" class="more">more</a>
+			</div>
+
+
+			<div class="change">
+				<button onclick="changeStyle()">change style</button>
+			</div>
+
+			<footer>
+				<a class="footerleft">Copyright 2017 XIAOTONG CHEN
+				</a>
+				<a href="./3rdASGN-terms.html" class="footerleft">Terms</a>
+				<a href="Mailto:mrchenxt@foxmail.com?" class="footerright">
+					<img src="./picmail.png" alt="picmail" class="picmail">
+				</a>
+				<a href="https://www.linkedin.com/in/xiaotong-chen-carlton/" class="footerright">
+					<img src="./piclinkedin.png" alt="piclinkedin" class="piclinkedin">
+				</a>
+
+			</footer>
+
+		</body>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="./portfolio.js"></script>
+	</html>
+  
+  
+  //////////////////////  css line  177-183/////////////////////////
+  html{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+}
+body{
+	margin: 0;
+}
+
+.left{
+	top: 30px;
+	left: 10px;
+	position: fixed;
+	max-width: 70vw;
+}
+.left a {
+	float: left;
+	color: white;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.picbacktotop{
+	height:auto;
+	width:50px;
+}
+
+.right{
+	position: fixed;
+	max-width: 25vw;
+	top: 30px;
+	right: 20px;
+}
+
+.right a{
+	float: right;
+}
+
+.aside{
+	position: fixed;
+	max-width: 25vw;
+	top: 30vh;
+	right: 10px;
+	font-size: 3vh;
+}
+
+
+/* Welcome page */
+
+.welcomepage h1{
+	margin:0;
+	text-align: center;
+	height: 20%;
+	width: 30%;
+	font-size: 5vw;
+	color: white;
+	top:40%;
+    position: relative;
+    -webkit-animation: mymove 15s infinite;
+    animation: mymove 15s infinite;
+}
+
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 50%;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 50%;}
+}
+
+
+.welcomepage{
+	width: 100vw;
+	height: 100vh;
+
+	background-image:url("picwelcome.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:cover;
+}
+
+
+
+
+/* About page */
+
+.aboutpage{
+
+	width: 100vw;
+	height: 100vh;
+	background-color:#ff6666;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.aboutpage h1{
+	margin-top: 0;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	font-size: 1.8em;
+	letter-spacing: 1px;
+}
+
+
+.findPic{
+	color: #ff6666;
+}
+
+
+/* Education page */
+.educationpage{
+
+	width: 100vw;
+	height: 100vh;
+	background-color:#ffcc66;
+	text-align: left;
+	display:flex;
+	flex-direction:row;
+	justify-content: space-around;
+}
+
+.educationpage .outer{
+	height: 100vh;
+	width: 20%;
+
+	display: -webkit-flex;
+	text-align: center;
+	display:flex;
+	flex-direction:column;
+	justify-content: flex-start;
+}
+
+.educationpage .inner{
+	height: 25%;
+	width: 100%;
+
+	display: -webkit-flex;
+	text-align: center;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+}
+
+.educationpage p{
+	font-size: 3vmin;
+}
+
+.education2{
+	background-color: lightgray;
+}
+
+.education2 h2{
+	text-align: center;
+	margin: 50px;
+}
+
+.education2 table{
+	max-width: 90vw;
+	margin: 0 auto;
+	letter-spacing: 1px;
+}
+
+.education2 tr td{
+	padding: 5px 8px;
+}
+
+/*.education2 ol{
+	padding-left: 30vw;
+	padding-right: 30vw;
+	letter-spacing: 2px;
+}
+*/
+.education2 .list{
+	width: 50vw;
+	height: auto;
+	margin: 0 auto;
+	letter-spacing: 1px;
+}
+
+
+
+.picneu, .piczust, .picucla{
+	width: 50px;
+	height: auto;
+}
+
+
+
+
+/* Project page */
+.projectpage{
+
+	width: 100vw;
+	height: 100vh;
+	background-color:#98b2e6;
+	text-align: left;
+	display:flex;
+	flex-direction:row;
+	justify-content: space-around;
+}
+
+.projectpage p{
+	font-size: 3vmin;
+}
+
+.projectpage .outer{
+	height: 100vh;
+	width: 20%;
+
+	display: -webkit-flex;
+	text-align: center;
+	display:flex;
+	flex-direction:column;
+	justify-content: flex-start;
+}
+
+.projectpage .inner{
+	height: 25%;
+	width: 100%;
+
+	display: -webkit-flex;
+	text-align: center;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+
+}
+
+.project2{
+	background-color: lightblue;
+}
+
+.project2 h2{
+	margin: 50px;
+	text-align: center;
+}
+
+.project2 ul{
+	padding-left: 10vw;
+	padding-right: 10vw;
+	letter-spacing: 2px;
+}
+
+
+
+
+/* Contact page */
+.contactpage{
+
+	width: 100vw;
+	height: 100vh;
+	background-color: lightgray;
+	display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.contactpage h1{
+	text-align: center;
+	margin-top: 0;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	font-size: 2em;
+	letter-spacing: 1px;
+	position: relative;
+}
+
+.more{
+	text-align: right;
+	margin-top: 20px;
+	position: relative;
+	right: 20px;
+}
+
+.contact2{
+	background-color:lightgray;
+}
+
+.contact2 h2{
+	margin: 50px;
+	text-align: center;
+}
+
+/*.contact2 ul{
+	padding-left: 20vw;
+	padding-right: 20vw;
+	letter-spacing: 2px;
+}*/
+.contact2 .list{
+	width: 45vw;
+	height: auto;
+	margin: 0 auto;
+	letter-spacing: 1px;
+	list-style:none;
+}
+
+.contact2 .list ul{
+	list-style:none;
+}
+
+/*
+.form{
+	max-width: 90vw;
+	margin: 0 auto;
+	letter-spacing: 1px;
+	border:1px solid white;
+}
+
+.form td{
+	padding: 5px;
+}*/
+
+#form{
+	width: 35vw;
+	margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+#form input[type=text],input[type=submit],textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#form input[type=submit]{
+	width: 100%;
+    box-sizing: border-box;
+    font-size: 3vmin;
+    background-color: lightgray;
+}
+
+
+.formhead{
+	text-align: center;
+	margin-top: 35px;
+}
+
+/* footer bar*/
+footer{
+	position: fixed;
+	bottom: 5px;
+	left: 20px;
+	right: 20px;
+	background: black;
+}
+
+footer a{
+	color: white;
+	font-size:15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-top:6px;
+	margin-bottom: 3px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+.footerleft{
+	float: left;
+}
+
+.footerright{
+	float: right;
+}
+
+.piclinkedin, .picmail{
+	height: 15px;
+	width: 15px;
+}
+
+.terms{
+	background-color: lightpink;
+}
+.terms h2{
+	text-align: center;
+	margin: 50px;
+}
+
+.terms p{
+	margin: 20px 40px;
+}
+.terms ol{
+	padding-left: 10vw;
+	padding-right: 10vw;
+	letter-spacing: 2px;
+
+}
+
+.change{
+	position: fixed;
+	width: 10vw;
+	height:auto;
+	bottom: 35px;
+	left: 20px;
+	right: 20px;
+}
+
+@media screen and (max-width: 480px) , (max-height: 480px){
+
+    html{
+    	font-size: 1em;
+    }
+
+    .welcomepage{
+	width: 100vw;
+	height: 100vh;
+
+	background-image:url("picwelcome2.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:cover;
+	}
+    .aboutpage h1, .contactpage h1{
+    	font-size: 1em;
+    }
+
+    footer a{
+    	font-size: 12px;
+    }
+    .picbacktotop{
+	height:auto;
+	width:30px;
+	}
+	.piclinkedin, .picmail{
+	height: auto;
+	width: 10px;
+	}
+	.educationpage p, .projectpage p{
+		font-size: 10px;
+	}
+
+
+}
+
+
+///////////////////JS line 588-592///////////////////////////
+
+$(document).ready(function(){
+	$(".aside").mouseenter(function(){
+		$(this).css("font-size","10vh");
+	});
+});
+
+
+function changeStyle(){
+
+	var currentStyle = document.getElementById('css').href;
+
+	if(currentStyle.indexOf('1.css') != -1){
+		document.getElementById('css').href='./style2.css';
+	}
+
+	else
+		document.getElementById('css').href='./style1.css';
+	
+}
+
+
+
+function findPic(){
+	alert("you find my picture here!");
+}
+
+
+
+window.onload=function(){
+	document.getElementById('fname').onfocus=function(){
+		if(this.value=="fname")
+			this.value="";
+	};
+	document.getElementById('fname').onblur=function(){
+		if(this.value.length==0)
+			this.value="fname";
+	}
+
+	document.getElementById('lname').onfocus=function(){
+		if(this.value=="lname")
+			this.value="";
+	};
+	document.getElementById('lname').onblur=function(){
+		if(this.value.length==0)
+			this.value="lname";
+	}
+	document.getElementById('email').onfocus=function(){
+		if(this.value=="x@x.x")
+			this.value="";
+	};
+	document.getElementById('email').onblur=function(){
+		if(this.value.length==0)
+			this.value="x@x.x";
+	}
+	document.getElementById('tel').onfocus=function(){
+		if(this.value=="1234567890")
+			this.value="";
+	};
+	document.getElementById('tel').onblur=function(){
+		if(this.value.length==0)
+			this.value="1234567890";
+	}
+
+
+
+	document.getElementById('form').onsubmit=function(){
+		var fname=this.fname.value;
+		var lname=this.lname.value;
+		var email=this.email.value;
+		var tel=this.tel.value;
+		if(fname=='fname'||lname=='lname'||email=='x@x.x'
+			||(email.indexOf("@") == -1 || email.indexOf(".") == -1)
+			||tel=='1234567890'||tel.length!=10){
+			alert("please enter valid NAME, EMAIL and TEL");
+			return false;
+		}
+	}
+
+}
+
+
+  
