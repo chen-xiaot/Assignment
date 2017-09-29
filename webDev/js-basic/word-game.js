@@ -1,4 +1,7 @@
 // Do not try to use any custom classes here
+/**
+ * 看不懂自己查，不要来问我
+ */
 class Game {
   constructor() {
     Object.assign(this, {
@@ -23,6 +26,7 @@ class Game {
   }
 
   guess(input = '') {
+    if (!this.started) return console.log('fk off!');
     let word = input.toLowerCase();
     let matched = 0;
     let answersSplited = this.answers.map(e => e.split(''));
