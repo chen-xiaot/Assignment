@@ -1,0 +1,55 @@
+html {
+	font-family: sans-serif;
+}
+
+body {
+	margin: 0;
+	background-color: lightgray;
+}
+
+header {
+	height: 50px;
+	background-color: maroon;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header p {
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+form {
+	width: 30vw;
+	position: absolute;
+	left: calc(50vw - 15vw);
+	margin-top: 20px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form div {
+	padding: 10px;
+	height: 6vh;
+}
+
+#button-play {
+  padding: 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px; 
+}
+
+#button-play:hover {
+	background-color: #3e8e41;
+}
