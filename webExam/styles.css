@@ -53,3 +53,81 @@ form div {
 #button-play:hover {
 	background-color: #3e8e41;
 }
+
+
+/*----------nav bar style------start---------------*/
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropbtn, .newgamebtn {
+	display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: inherit;
+	background-color: inherit;
+    border: none;
+    height: 50px;
+}
+
+.newgamebtn {
+	background-color: #4CAF50;
+	border-radius: 20px;
+}
+
+
+.newgamebtn:hover, li a:hover, .dropdown:hover .dropbtn {
+    background-color: #ff8080;
+}
+
+.navbar li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content li {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    float: none;
+}
+
+.dropdown-content li:hover {
+	background-color: #ff8080;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*----------nav bar style----end----------------*/
+
+
